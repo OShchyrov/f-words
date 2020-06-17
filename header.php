@@ -130,12 +130,11 @@
 			changeLocation("/index.php");
 		}
 	}
-	//echo "<div style='padding-top: 20px'><h1>Ведуться технічні роботи!</h1><center><a href='/'>На головну</a></center></div>";
-	//exit;
-	/*if ($_SERVER['SERVER_NAME'] != "fwords.000webhostapp.com") {
-		echo "<div style='padding-top: 10px;'><h1>Сайт не доступний за цією адресою!</h1><a href='https://fwords.000webhostapp.com'><h1>Перейти на новий сайт</h1></a></div>";
+
+	if ($_SERVER['SERVER_NAME'] != "f-words.eu5.org") {
+		echo "<div style='padding-top: 10px;'><h1>Сайт не доступний за цією адресою!</h1><a href='http://f-words.eu5.org'><h1>Перейти на новий сайт</h1></a></div>";
 		exit;
-	}*/
+	}
 ?>
 <script>
 	document.body.onkeydown = onKeyEvent;

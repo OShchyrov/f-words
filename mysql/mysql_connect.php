@@ -1,15 +1,16 @@
 <?php
 	
-	/*$host = "192.168.0.22";
-	$user = "root";
-	$password = "";
-	$database = "f_words";*/
-	
-	$host = "db4free.net";
-	$user = "f_words";
-	$password = "f_wordsf_words";
-	$database = "f_words";
-	
+	if ($_SERVER['SERVER_NAME'] != "f-words.eu5.org") {
+		$host = "192.168.0.22";
+		$user = "root";
+		$password = "";
+		$database = "f_words";
+	} else {
+		$host = "localhost";
+		$user = "128437";
+		$password = "13579sasha";
+		$database = "128437";
+	}
 	$TABLE_ACCOUNTS = 'words_accounts';
 	$TABLE_WORDS = 'words_user_words';
 	$TABLE_IRREGULAR_VERBS = 'words_irregular_verbs';
@@ -29,6 +30,7 @@
 	id INT(10) AUTO_INCREMENT PRIMARY KEY,
 	login VARCHAR(30) CHARACTER SET cp1251 COLLATE cp1251_ukrainian_ci NOT NULL,
 	password VARCHAR(30) CHARACTER SET cp1251 COLLATE cp1251_ukrainian_ci NOT NULL,
+	email VARCHAR(32) CHARACTER SET cp1251 COLLATE cp1251_ukrainian_ci NOT NULL,
 	admin INT(1) NOT NULL,
 	online INT(1) NOT NULL,
 	ban VARCHAR(32)

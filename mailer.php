@@ -1,8 +1,40 @@
 <?php
-	
-	$email = "sshchirova@gmail.com";
+
+	$email = $_REQUEST["email"];
+	$type = $_REQUEST["type"];
 	$subject = "Вивчення англійської мови";
-	$message = "<!DOCTYPE html>
+	
+	$info = "";
+	switch($type) {
+		case "control_test": {
+			$data = $_REQUEST["data"];
+			$test_type = $data["test_type"];
+			$block_id = $data["block_id"];
+			switch($test_type) {
+				case 0: {
+					$test_name = "Неправильні дієслова";
+					break;
+				}
+				case 1: {
+					$test_name = "Словниковий диктант";
+					break;
+				}
+			}
+			$info = "Для вас увімкнено контрольний тест: " . $test_name . " #" . $block_id;
+			break;
+		}
+	}
+	
+	$message = getMessage($info);
+	
+	$headers = "From: " . "F-Words" . "\r\n";
+	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+	
+	mail($email, $subject, $message, $headers);
+	
+	
+	function getMessage($info) {
+		return "<!DOCTYPE html>
 	<head>
 	<meta charset='utf-8' />
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
@@ -73,13 +105,9 @@
 		<h1>Вчимо іноземні слова!</h1>
 	</div>
 	<div id='main'>
-	<div style='padding-top:20px;'><h1>Вітаємо вас зі святом Великодня!</h1></div><br/>
+	<div style='padding-top:20px;'><h1>$info</h1></div><br/>
 	<div><h1>Дякуємо, що Ви з нами!</h2></div><br/>
 	<div><h2>Команда F-Words.</h2></div><br/>";
+	}
 	
-	$headers = "From: " . "F-Words" . "\r\n";
-	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-	
-	//mail($email, $subject, $message, $headers);
-	echo $message;
 ?>

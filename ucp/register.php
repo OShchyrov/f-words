@@ -15,14 +15,16 @@
 				<table align='center'>
 				<tr> <td> <span id='show_words'>Логін:</span></td> <td><input type='text' name='add_name' /></td></tr>
 				<tr> <td> <span id='show_words'>Пароль:</span></td> <td><input type='text' name='add_pass' /></td></tr>
+				<tr> <td> <span id='show_words'>E-mail:</span></td> <td><input type='text' name='add_email' /></td></tr>
 				<tr> <td colspan=2 align='center'><input type='submit' name='register_user' value='Зареєструвати' /></td>
 				</tr></table>";
 				echo "<div class='mainucp'><a href='ucp.php'>Повернутись в UCP-панель</a></div><br></div>";
 	} else {
-		if($_POST["add_name"] != '' & $_POST["add_pass"] != '') {
+		if($_POST["add_name"] != '' && $_POST["add_pass"] != '' && $_POST["add_email"] != '') {
 			$name = $_POST["add_name"];
 			$pass = $_POST['add_pass'];
-			$a = mysqli_query($mysql, "INSERT INTO `$TABLE_ACCOUNTS` (login, password) VALUES ('$name', '$pass')");
+			$email = $_POST['add_email'];
+			$a = mysqli_query($mysql, "INSERT INTO `$TABLE_ACCOUNTS` (login, password, email) VALUES ('$name', '$pass', '$email')");
 			if($a) echo "<p style='font-size: 24px; margin: 0; color: green;'>Аккаунт $name успішно зареєстровано!</p>";
 			else echo "<p style='font-size: 24px; margin: 0; color: red;'>Помилка реєстрації аккаунту $name!</p>";
 			
