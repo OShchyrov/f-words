@@ -1,8 +1,13 @@
 <?php
 	
-	$host = "192.168.0.22";
+	/*$host = "192.168.0.22";
 	$user = "root";
 	$password = "";
+	$database = "f_words";*/
+	
+	$host = "db4free.net";
+	$user = "f_words";
+	$password = "f_wordsf_words";
 	$database = "f_words";
 	
 	$TABLE_ACCOUNTS = 'words_accounts';
