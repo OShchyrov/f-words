@@ -1,0 +1,76 @@
+@media only screen and (max-width: 600px) {
+	#login td {
+		display: block;
+		text-align: center;
+	}
+	#knows, #unknows {
+		margin: 10px;
+	}
+	#login input {
+		max-width: 300px;
+	}
+	input {
+		max-width: 150px;
+		font-size: 18px;
+	}
+	.words_table input {
+		max-width: 200px;
+		font-size: 22px;
+	}
+	.show_words {
+		font-size: 20px;
+		margin-top: 15px;
+	}
+	.show_words:nth-of-type(1) {
+		margin-top: 30px;
+	}
+	#head {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	#head h1 {
+		font-size: 24px;
+	}
+	#info, #ucp {
+		font-size: 18px;
+	}
+	.test_number {
+		font-size: 14pt;
+		margin-top: 20px;
+		margin-right: 20px;
+	}
+	.mainucp {
+		text-align: center;
+		line-height: 40px;
+		font-size: 20px;
+		padding-top: 50px;
+	}
+	.feedback {
+		display: none;
+	}
+	.info_data {
+		padding: 10px;
+		font-size: 18px;
+	}
+	#main h2 {
+		padding-top: 30px;
+		padding-bottom: 20px;
+		margin: 0;
+	}
+	.words_table tr:nth-of-type(1), .verbs_show {
+		display: table-cell;
+	}
+	.words_table td {
+		display: block;
+		font-size: 16px;
+		max-width: 100px;
+	}
+	.words_table input {
+		font-size: 18px;
+		max-width: 200px;
+	}
+	.words_table .caption {
+		font-size: 16px;
+		max-width: 100px;
+	}
+}
