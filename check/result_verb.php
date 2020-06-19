@@ -1,13 +1,7 @@
 <?php
-	session_start();
-	header("Content-Type: text/html; charset=utf-8");
-	include "../mysql/mysql_connect.php";
-	mysqli_query($mysql, "SET NAMES utf8");
-
-	$login = $_SESSION["login"];
 	include '../header.php';
-	
-	?>
+	$login = $_SESSION["login"];
+?>
 	
 	<script>
 		function playMusic(url) {

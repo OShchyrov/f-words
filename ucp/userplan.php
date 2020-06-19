@@ -1,11 +1,9 @@
 <?php
-	session_start();
-
 	include '../header.php';
 	include "check_admin.php";
 	checkAdmin();
 	echo "<div id='main'>";
-	include "../mysql/mysql_connect.php";
+
 	echo "<div style='padding-top: 20px;'>";
 	
 	echo "<a href='../ucp/ucp.php'><div id='ucp'>UCP-панель</div></a>";

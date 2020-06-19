@@ -1,5 +1,4 @@
-<?php session_start();
-	include "../header.php" ?>
+<?php include "../header.php" ?>
 			<h2>Введіть кількість слів.</h2>
 			<input id='num_of_words' type='number' /><br>
 			<span id='submit_num'>Далі</span>
@@ -8,7 +7,7 @@
 		<?php
 			$login = $_SESSION["login"];
 			if($login == "") changeLocation("../index.php");
-			include "../mysql/mysql_connect.php";
+
 			$result = mysqli_query($mysql, "SELECT * FROM `$TABLE_ACCOUNTS` WHERE `login` = '$login'");
 			$adm = mysqli_fetch_assoc($result);
 			$id = $adm["id"];

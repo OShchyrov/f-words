@@ -1,18 +1,11 @@
 <?php
 	$MAX_SECONDS_COUNTDOWN_TIMER = 60;
 	
-	session_start();
-	header("Content-Type: text/html; charset=utf-8");
-
-	include "../mysql/mysql_connect.php";
-	mysqli_query($mysql, "SET NAMES utf8");
-	include '../header.php';
-	$login = $_SESSION["login"];
+	include_once '../header.php';
 	
 	checkLogin();
-	
-	$res = mysqli_query($mysql, "SELECT * FROM $TABLE_ACCOUNTS WHERE `login` = '$login'");
-	$u_id = mysqli_fetch_assoc($res)["id"];
+	$login = $_SESSION["login"];
+	$u_id = $_SESSION["uid"];
 	
 	$res = mysqli_query($mysql, "SELECT * FROM $TABLE_CONTROL_TESTS WHERE u_id = $u_id AND test_type = 0") or die(mysqli_error($mysql));
 	
@@ -148,13 +141,13 @@
 		}
 		function startTimer() {
 			countdown.innerText = <?php echo $MAX_SECONDS_COUNTDOWN_TIMER; ?>;
-			clearInterval(checkTimer);
+			window.clearTimeout(checkTimer);
 			checkTimer = new Timer(function() {
 				countdown.innerText = countdown.innerText-1;
-				timer.resume();
+				checkTimer.resume();
 				if (countdown.innerText == '0') {
-					clearInterval(checkTimer);
-					words[currentRow].getElementsByTagName('input')[3].click();
+					window.clearTimeout(checkTimer);
+					words[currentRow].getElementsByTagName('input')[1].click();
 				}
 			}, 1000);
 		}

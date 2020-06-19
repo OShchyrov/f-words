@@ -1,5 +1,4 @@
-<?php session_start();
-	include "../header.php" ?>
+<?php include "../header.php" ?>
 			<div style='padding: 50px;'></div>
 			<div class='show_words'><a href='plan.php'>Календарний план.</a></div>
 			<div class='show_words'><a href='words_add.php'>Додати слова в поточний блок.</a></div>
@@ -11,7 +10,6 @@
 		<?php
 			$login = $_SESSION["login"];
 			if($login == "") changeLocation("../index.php");
-			include "../mysql/mysql_connect.php";
 			$result = mysqli_query($mysql, "SELECT * FROM `$TABLE_ACCOUNTS` WHERE `login` = '$login'");
 			$adm = mysqli_fetch_assoc($result);
 			$id = $adm["id"];

@@ -1,16 +1,11 @@
 <?php
+	include_once '../header.php';
+	$login = $_SESSION["login"];
+	$id = $_SESSION["uid"];
+	
 	$MAX_SECONDS_COUNTDOWN_TIMER_WORDS = 30;
 	$MAX_SECONDS_COUNTDOWN_TIMER_SENTENCES = 75;
-	
-	session_start();
-	header("Content-Type: text/html; charset=utf-8");
-
-	include "../mysql/mysql_connect.php";
-	mysqli_query($mysql, "SET NAMES utf8");
-	include '../header.php';
-	$login = $_SESSION["login"];
-	
-	?>
+?>
 	
 	<script>
 		function playMusic(url) {
@@ -57,8 +52,6 @@
 	echo "<div id='alll'><span class='countdown'></span><table class='words_table'><form action='result.php' method='post'>";
 	
 	$num_of_words = 1;
-	$res = mysqli_query($mysql, "SELECT * FROM $TABLE_ACCOUNTS WHERE `login` = '$login'");
-	$id = mysqli_fetch_assoc($res)["id"];
 	
 	if (!isset($_REQUEST['block_id'])) {
 		$result = mysqli_query($mysql, "SELECT block_id FROM $TABLE_BLOCKS WHERE u_id = '$id' AND block_id < '100' ORDER BY block_id DESC LIMIT 1");

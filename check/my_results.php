@@ -1,14 +1,14 @@
 <?php 
-	session_start();
 	include "../header.php";
 	
 	$login = $_SESSION["login"];
+	$id = $_SESSION["uid"];
 	if($login == "") changeLocation("../index.php");
-	include "../mysql/mysql_connect.php";
+
 	$result = mysqli_query($mysql, "SELECT * FROM `$TABLE_ACCOUNTS` WHERE `login` = '$login'");
 	$adm = mysqli_fetch_array($result);
 	$admin = $adm['admin'];
-	$id = $adm["id"];
+
 	if($admin) echo "<a href='../ucp/ucp.php'><div id='ucp'>UCP-панель</div></a>";
 	
 	echo "<a href='../index.php'><div id='info'>Головна</div></a>";

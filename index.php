@@ -1,11 +1,7 @@
 <?php
-	session_start();
-
-	header("Content-Type: text/html; charset=utf-8");
 	include 'header.php';
 	
 	echo "<div id='main'>";
-	include "mysql/mysql_connect.php";
 	$login = $_SESSION["login"];
 	$result = mysqli_query($mysql, "SELECT * FROM `$TABLE_ACCOUNTS` WHERE `login` = '$login'");
 	$isban = mysqli_fetch_assoc($result)['ban'];
@@ -16,9 +12,7 @@
 		exit; 
 	else:
 	if($_GET['action'] == 3) changeLocation("check/words.php");
-	//if($result) { 
-		$online = mysqli_fetch_assoc($result)['online'];
-//	} else $online = '';
+
 	mysqli_close($mysql);
 	if ($_GET["tui"] == 1) {
 		$_SESSION["test_unique_id"] = "";

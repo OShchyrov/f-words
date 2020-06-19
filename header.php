@@ -1,3 +1,8 @@
+<?php 
+	session_start();
+	include_once("mysql/mysql_connect.php");
+	date_default_timezone_set('Europe/Kiev');
+?>
 <html translate="no">
 <head>
 	<meta charset='utf-8' />
@@ -70,11 +75,13 @@
 		
 		var timer = setInterval(showSessionExpired, 900000);
 		var checkTimer;
+
 		(function worker() {
 			$.ajax({
 				method: "POST",
-				url: "/api.php",
+				url: "<?php echo $_SESSION["SERVER_NAME"]; ?>/api.php",
 				success: function(data) {
+					console.log(data);
 					try {
 						var obj = $.parseJSON(data);
 						if (obj.action_name === "location") {
@@ -125,16 +132,21 @@
 		echo "<script>window.location = \"$url\";</script>";
 	}
 	function checkLogin() {
-		session_start();
 		if (!isset($_SESSION["login"])) {
 			changeLocation("/index.php");
 		}
 	}
+	
+	if (isset($_SESSION["login"])) {
+		mysqli_query($mysql, "UPDATE $TABLE_ACCOUNTS SET online = '".time()."' WHERE login = '".$_SESSION["login"]."'") or die(mysqli_error($mysql));
+	}
+	
 
 	if ($_SERVER['SERVER_NAME'] != "f-words.eu5.org") {
 		echo "<div style='padding-top: 10px;'><h1>Сайт не доступний за цією адресою!</h1><a href='http://f-words.eu5.org'><h1>Перейти на новий сайт</h1></a></div>";
 		exit;
 	}
+	
 ?>
 <script>
 	document.body.onkeydown = onKeyEvent;

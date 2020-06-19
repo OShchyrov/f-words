@@ -1,9 +1,8 @@
 <?php
-	session_start();
+	
 	include '../header.php';
 	include "check_admin.php";
 	checkAdmin();
-	include "../mysql/mysql_connect.php";
 	$login = $_SESSION["login"];
 	$result = mysqli_query($mysql, "SELECT * FROM `$TABLE_ACCOUNTS` WHERE `login` = '$login'");
 	$adm = mysqli_fetch_assoc($result);

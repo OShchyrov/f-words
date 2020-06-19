@@ -23,6 +23,7 @@
 			$info = "Для вас увімкнено контрольний тест: " . $test_name . " #" . $block_id;
 			break;
 		}
+		default: $info = $_REQUEST["message"];
 	}
 	
 	$message = getMessage($info);
@@ -30,7 +31,7 @@
 	$headers = "From: " . "F-Words" . "\r\n";
 	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 	
-	mail($email, $subject, $message, $headers);
+	//mail($email, $subject, $message, $headers);
 	
 	
 	function getMessage($info) {
@@ -83,6 +84,10 @@
 			margin: 30px;
 			border-radius: 20px;
 			text-decoration: none;
+		}
+		
+		ol {
+			width: 200px;
 		}
 		
 		@media (max-width: 600px) {

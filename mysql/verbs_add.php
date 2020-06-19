@@ -13,9 +13,11 @@
 		array("lie", "lay", "lain", "лежати"),
 		array("sit", "sat", "sat", "сидіти"),
 		array('have', 'had', 'had', 'мати'),
-		array("go", "went", "gone", "йти")
+		array("go", "went", "gone", "йти"),
+		array("find", "found", "found", "знайти"),
+		array("do", "did", "done", "робити")
 	);
-	$u_id = 0;
+	$u_id = 1;
 	session_start();
 	header("Content-Type: text/html; charset=utf-8");
 	include "mysql_connect.php";

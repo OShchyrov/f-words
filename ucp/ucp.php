@@ -1,8 +1,6 @@
 <?php
-	session_start();
 	include '../header.php';
 	include "check_admin.php";
-	include "../mysql/mysql_connect.php";
 	$login = $_SESSION["login"];
 	checkAdmin();
 	

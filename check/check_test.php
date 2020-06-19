@@ -1,11 +1,8 @@
 <?php
-	session_start();
-	
-	include "../mysql/mysql_connect.php";
+	include_once '../header.php';
 	
 	$login = $_SESSION["login"];
-	$res = mysqli_query($mysql, "SELECT * FROM $TABLE_ACCOUNTS WHERE `login` = '$login'");
-	$id = mysqli_fetch_assoc($res)["id"];
+	$id = $_SESSION["uid"];
 	
 	$res = mysqli_query($mysql, "SELECT * FROM $TABLE_CONTROL_TESTS WHERE u_id = $id AND test_type = 1") or die(mysqli_error($mysql));
 	
@@ -22,8 +19,6 @@
 	$admin = $adm["admin"];
 	
 	if (isset($_REQUEST["unsuccess_attempts"]) && $_REQUEST['unsuccess_attempts'] >= 2) {
-		header("Content-Type: text/html; charset=utf-8");
-		include '../header.php';
 		echo "<div style='padding-top: 30px;'><h1>Виявлено спробу взлому тесту!</h1></div>";
 		echo "<div style='color: #FF1100; padding-top: 30px;'><h1>ВАШ АККАУНТ ЗАБЛОКОВАНО!</h1></div>";
 		if ($admin)
@@ -43,9 +38,6 @@
 	}
 	
 	if (!isset($_POST["access"]) || $_POST["access_pwd"] != $simple_test_pwd) {
-		session_start();
-		header("Content-Type: text/html; charset=utf-8");
-		include '../header.php';
 		$unsuccess_attempts = isset($_REQUEST["unsuccess_attempts"]) ? $_REQUEST["unsuccess_attempts"] : 0;
 		if (isset($_POST["access_pwd"]) && $_POST["access_pwd"] != "" && $_POST["access_pwd"] != $verbs_test_pwd)
 			$unsuccess_attempts++;

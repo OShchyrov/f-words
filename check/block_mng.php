@@ -1,12 +1,9 @@
-<?php
-	session_start();
+<?php	
+	include "../header.php";
+	checkLogin();
 	
 	$login = $_SESSION["login"];
-	if($login == "") changeLocation("../index.php");
-	include "../header.php";
-	include "../mysql/mysql_connect.php";
-	$result = mysqli_query($mysql, "SELECT * FROM $TABLE_ACCOUNTS WHERE `login` = '$login'");
-	$id = mysqli_fetch_assoc($result)["id"];
+	$id = $_SESSION["uid"];
 	
 	$result = mysqli_query($mysql, "SELECT * FROM `$TABLE_ACCOUNTS` WHERE `login` = '$login'");
 	$adm = mysqli_fetch_array($result);

@@ -6,10 +6,12 @@
 	if(!$result) echo "<script>window.location = \"index.php\";</script>";
 	else $pass = mysqli_fetch_assoc($result);
 	$apass = $pass['password'];
+	$id = $pass["id"];
 	if($login != '' & $_POST["password"] != '') {
 		if($_POST["password"] == $pass["password"]) {
 			$_SESSION["login"] = $login;
-			mysqli_query($mysql, "UPDATE $TABLE_ACCOUNTS SET online = '1' WHERE login = '$login'");
+			$_SESSION["uid"] = $id;
+			mysqli_query($mysql, "UPDATE $TABLE_ACCOUNTS SET online = '".time()."' WHERE login = '$login'");
 			echo "<script>window.location = \"index.php?action=3\";</script>";
 		} else {
 			echo "<script>window.location = \"index.php?action=1\";</script>";

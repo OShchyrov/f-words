@@ -21,6 +21,7 @@
 	$TABLE_USER_ACTIONS = "words_user_actions";
 	$TABLE_USER_PLANS = "words_user_plans";
 
+	global $mysql;
 	$mysql = mysqli_connect($host, $user, $password);
 	if(!$mysql) echo "Error connecting to DATABASE<br>";
 
@@ -32,7 +33,7 @@
 	password VARCHAR(30) CHARACTER SET cp1251 COLLATE cp1251_ukrainian_ci NOT NULL,
 	email VARCHAR(32) CHARACTER SET cp1251 COLLATE cp1251_ukrainian_ci NOT NULL,
 	admin INT(1) NOT NULL,
-	online INT(1) NOT NULL,
+	online INT(13) NOT NULL,
 	ban VARCHAR(32)
 	)") or die(mysqli_error($mysql));
 	mysqli_query($mysql, "INSERT INTO `$TABLE_ACCOUNTS` (`login`, `password`, `admin`) VALUES ('admin', '123456', '1')");

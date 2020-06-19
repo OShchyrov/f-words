@@ -1,11 +1,8 @@
 <?php
-	session_start();
-
 	include '../header.php';
 	include "check_admin.php";
 	checkAdmin();
 	echo "<div id='main'>";
-	include "../mysql/mysql_connect.php";
 	if(isset($_POST["accname"]))
 	{
 		mysqli_query($mysql, "UPDATE `$TABLE_ACCOUNTS` SET `login` = ");
@@ -22,6 +19,8 @@
 		$info = mysqli_fetch_assoc($result1);
 		echo "<span class='user'>Користувач:<b> <span id='change_name'>$user</span></span></b><br>";
 		echo "<span id='user'>Пароль:<span class='pass_d'>*******</span><span class='pass'><b>". $info["password"]."</span></span></b><br>";
+		$datetime = gmdate("Y-m-d H:i:s", $info["online"]+3*3600);
+		echo "<span class='user'>Останній раз на сайті:<b> <span id='change_name'>".$datetime."</span></span></b><br>";
 		echo "<span class='user_adm'>Адміністратор: <b>";
 		if($info["admin"]) echo "Так"; else echo "Ні"; echo "</b></span>";
 		$result = mysqli_query($mysql, "SELECT ban FROM $TABLE_ACCOUNTS WHERE login = '$user'");
