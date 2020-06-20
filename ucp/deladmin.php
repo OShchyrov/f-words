@@ -9,7 +9,7 @@
 		echo "<h2>Зняти адміністратора</h2>
 				<form class='del_form' method='post' action='deladmin.php'> <table align='center'> <tr>
 				<td><span id='show_words'>Логін:</span></td> <td><input type='text' name='del_adm' /></td></tr>
-				<tr><td colspan=2 align='center'><input type='submit' name='deladmin' value='Зняти' /></td></tr></table>";
+				<tr><td colspan=2 align='center'><input type='submit' class='mui-btn mui-btn--primary mui-btn--raised' name='deladmin' value='Зняти' /></td></tr></table>";
 				echo "<div class='mainucp'><a href='ucp.php'>Повернутись в UCP-панель</a></div><br>";
 	} else {
 		if($_POST["del_adm"] != '') {

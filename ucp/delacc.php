@@ -15,7 +15,7 @@
 				<form class='del_form' method='post' action='delacc.php'>
 				<table align='center'> <tr>
 				<td> <span id='show_words'>Логін:</span></td> <td><input type='text' name='del_name' /></td></tr>
-				<tr> <td align='center' colspan=2><input type='submit' name='delacc' value='Видалити' /></td></tr></table></form>";
+				<tr> <td align='center' colspan=2><input type='submit' class='mui-btn mui-btn--primary mui-btn--raised' name='delacc' value='Видалити' /></td></tr></table></form>";
 				echo "<div class='mainucp'><a href='ucp.php'>Повернутись в UCP-панель</a></div><br>";
 	} else {
 		if($_POST["del_name"] != '') {

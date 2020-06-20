@@ -29,7 +29,7 @@
 				echo "<tr><td class='words_num'>$counter</td><td class='td_l'>".$row['word']."</td><td class='td_r'>".$row['translate']."</td></tr>";
 				$counter++;
 			}
-			echo "<tr><td colspan=3><a href='transfer_block.php?block_id=$block_id'><input type='button' value='Передати блок' /></a></td></tr>";
+			echo "<tr><td colspan=3><a href='transfer_block.php?block_id=$block_id'><input type='button' value='Передати блок' class='mui-btn mui-btn--primary mui-btn--raised' /></a></td></tr>";
 			echo "</table></span>";
 		}
 	} else if(isset($_REQUEST["block_id"]) && !isset($_REQUEST['username'])) {
@@ -46,8 +46,8 @@
 		echo "<br/><br/>";
 		echo "<h1>Блок слів повинен бути скритим?</h1>";
 		$url_core = "transfer_block.php?block_id=$block_id&username=$username&hidden";
-		echo "<a href='$url_core=1'><input type='button' value='Скритий' /></a>";
-		echo "<a href='$url_core=0' style='padding-left: 10px;'><input type='button' value='Відкритий' /></a>";
+		echo "<a href='$url_core=1'><input class='mui-btn mui-btn--primary mui-btn--raised' type='button' value='Скритий' /></a>";
+		echo "<a href='$url_core=0' style='padding-left: 10px;'><input class='mui-btn mui-btn--primary mui-btn--raised' type='button' value='Відкритий' /></a>";
 	} else if (isset($_REQUEST["block_id"]) && isset($_REQUEST['username']) && isset($_REQUEST['hidden']) && !isset($_REQUEST["copy"])) {
 		$block_id = $_REQUEST["block_id"];
 		$username = $_REQUEST["username"];
@@ -56,8 +56,8 @@
 		echo "<br/><br/>";
 		echo "<h1>Блок слів копіювати чи перемістити?</h1>";
 		$url_core = "transfer_block.php?block_id=$block_id&username=$username&hidden=$hidden&copy";
-		echo "<a href='$url_core=1'><input type='button' value='Копіювати' /></a>";
-		echo "<a href='$url_core=0' style='padding-left: 10px;'><input type='button' value='Перемістити' /></a>";
+		echo "<a href='$url_core=1'><input class='mui-btn mui-btn--primary mui-btn--raised' type='button' value='Копіювати' /></a>";
+		echo "<a href='$url_core=0' style='padding-left: 10px;'><input class='mui-btn mui-btn--primary mui-btn--raised' type='button' value='Перемістити' /></a>";
 	} else if (isset($_REQUEST["block_id"]) && isset($_REQUEST['username']) && isset($_REQUEST['hidden']) && isset($_REQUEST["copy"])) {
 		$block_id = $_REQUEST["block_id"];
 		$username = $_REQUEST["username"];

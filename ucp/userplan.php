@@ -22,8 +22,8 @@
 		echo "<h1>Додати план чи редагувати існуючий? Для користувача $username</h1>";
 		echo "<br/><br/>";
 		
-		echo "<a href='userplan.php?username=$username&action=add'><input type='button' value='Додати новий' /></a>";
-		echo "<a style='padding-left: 20px;' href='userplan.php?username=$username&action=update'><input type='button' value='Редагувати існуючий' /></a>";
+		echo "<a href='userplan.php?username=$username&action=add'><input class='mui-btn mui-btn--primary mui-btn--raised' type='button' value='Додати новий' /></a>";
+		echo "<a style='padding-left: 20px;' href='userplan.php?username=$username&action=update'><input class='mui-btn mui-btn--primary mui-btn--raised' type='button' value='Редагувати існуючий' /></a>";
 	} else if (isset($_REQUEST["username"]) && isset($_REQUEST["action"])) {
 		$username = $_REQUEST["username"];
 		$action = $_REQUEST["action"];
@@ -47,7 +47,7 @@
 				echo "<table align=center>";
 				echo "<tr><td><b>Дата:</b></td><td><input type='date' name='dt' /></tr>";
 				echo "<tr><td><b>Опис завдання:</b></td><td><textarea rows=20 cols=100 name='description' ></textarea></tr>";
-				echo "<tr><td colspan=2 align=center><input type='submit' name='add' value='Відправити' /></td></tr>";
+				echo "<tr><td colspan=2 align=center><input type='submit' class='mui-btn mui-btn--primary mui-btn--raised' name='add' value='Відправити' /></td></tr>";
 				echo "</table></form>";
 			}
 		} else if ($action == "update") {
@@ -62,7 +62,7 @@
 				while ($row = mysqli_fetch_assoc($result)) {
 					$dt = $row["dt"];
 					$description = $row["description"];
-					echo "<tr><td>$dt</td><td>$description</td><td><a href='userplan.php?username=$username&action=$action&dt=$dt'><input type='button' value='Обрати'></a></td></tr>";
+					echo "<tr><td>$dt</td><td>$description</td><td><a href='userplan.php?username=$username&action=$action&dt=$dt'><input type='button' class='mui-btn mui-btn--primary mui-btn--raised' value='Обрати'></a></td></tr>";
 				}
 				echo "</table>";
 			} else {
@@ -77,7 +77,7 @@
 					$result = mysqli_query($mysql, "SELECT * FROM $TABLE_USER_PLANS WHERE u_id = $target_id AND dt = '$dt'");
 					$row = mysqli_fetch_assoc($result);
 					$description = $row["description"];
-					echo "<a href='userplan.php?username=$username&action=$action&dt=$dt&delete=1'><input type='button' value='Видалити даний календар'/></a>";
+					echo "<a href='userplan.php?username=$username&action=$action&dt=$dt&delete=1'><input class='mui-btn mui-btn--primary mui-btn--raised' type='button' value='Видалити даний календар'/></a>";
 					echo "<br/><br/>";
 					echo "<form method='get'>";
 					echo "<input type='hidden' name='username' value='$username' />";
@@ -86,7 +86,7 @@
 					echo "<table align=center>";
 					echo "<tr><td><b>Дата:</b></td><td><input type='date' value='$dt' disabled /></tr>";
 					echo "<tr><td><b>Опис завдання:</b></td><td><textarea rows=20 cols=100 name='description' >$description</textarea></tr>";
-					echo "<tr><td colspan=2 align=center><input type='submit' name='update' value='Відправити' /></td></tr>";
+					echo "<tr><td colspan=2 align=center><input class='mui-btn mui-btn--primary mui-btn--raised' type='submit' name='update' value='Відправити' /></td></tr>";
 					echo "</table></form>";
 				} else {
 					$description = $_REQUEST["description"];

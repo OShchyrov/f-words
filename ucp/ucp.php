@@ -15,7 +15,8 @@
 	echo "<a href='transfer_block.php'>Передати блок слів</a><br>";
 	echo "<a href='control_mng.php'>Управління контрольними тестами</a><br>";
 	echo "<a href='user_actions.php'>Дії користувачів</a><br>";
-	echo "<a href='userplan.php'>Календарний план</a><br></div></div>";
+	echo "<a href='userplan.php'>Календарний план</a><br>";
+	echo "<a href='words_editor.php'>Редактор словників</a><br></div></div>";
 	mysqli_close($mysql);
 ?>
 </div>

@@ -10,7 +10,7 @@
 		echo "<h2>Додати адміністратора</h2>
 				<form class='del_form' method='post' action='makeadmin.php'> <table align='center'> <tr>
 				<td><span id='show_words'>Логін:</span></td> <td><input type='text' name='adm_name' /></td></tr>
-				<tr><td align='center' colspan=2><input type='submit' name='makeadmin' value='Додати' /></td></tr></table>";
+				<tr><td align='center' colspan=2><input type='submit' class='mui-btn mui-btn--primary mui-btn--raised' name='makeadmin' value='Додати' /></td></tr></table>";
 				echo "<div class='mainucp'><a href='ucp.php'>Повернутись в UCP-панель</a></div><br>";
 	} else {
 		if($_POST["adm_name"] != '') {

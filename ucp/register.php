@@ -13,7 +13,7 @@
 				<tr> <td> <span id='show_words'>Логін:</span></td> <td><input type='text' name='add_name' /></td></tr>
 				<tr> <td> <span id='show_words'>Пароль:</span></td> <td><input type='text' name='add_pass' /></td></tr>
 				<tr> <td> <span id='show_words'>E-mail:</span></td> <td><input type='text' name='add_email' /></td></tr>
-				<tr> <td colspan=2 align='center'><input type='submit' name='register_user' value='Зареєструвати' /></td>
+				<tr> <td colspan=2 align='center'><input type='submit' class='mui-btn mui-btn--primary mui-btn--raised' name='register_user' value='Зареєструвати' /></td>
 				</tr></table>";
 				echo "<div class='mainucp'><a href='ucp.php'>Повернутись в UCP-панель</a></div><br></div>";
 	} else {

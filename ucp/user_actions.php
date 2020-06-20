@@ -45,7 +45,7 @@
 		<input type='hidden' name='username' value='$username' />
 		<input type='hidden' name='action_name' value='$action_name' />
 		<input type='text' name='action_data' value='' /><br/>
-		<input type='submit' value='Відправити' />
+		<input type='submit' class='mui-btn mui-btn--primary mui-btn--raised' value='Відправити' />
 		</form>";
 	} else if (isset($_REQUEST['username']) && isset($_REQUEST['action_name']) && isset($_REQUEST["action_data"])) {
 		$username = $_REQUEST["username"];

@@ -42,7 +42,7 @@
 		echo "<form method='post' action='control_mng.php'><table id='table_results' align=center>";
 		echo "<tr><td><b>Звичайні тести</b></td><td><input type='text' value='$simple_test_pwd' name='simple_test' /></td></tr>";
 		echo "<tr><td><b>Тест по неправильним дієсловам</b></td><td><input type='text' value='$verbs_test_pwd' name='verbs_test' /></td></tr>";
-		echo "<tr><td colspan=2 align=center><input type='submit' name='submit' value='Зберегти' /></td></tr>";
+		echo "<tr><td colspan=2 align=center><input class='mui-btn mui-btn--primary mui-btn--raised' type='submit' name='submit' value='Зберегти' /></td></tr>";
 		echo "<input type='hidden' name='changed_pwd' value='1' />";
 		echo "</table></form>";
 		echo "<div class='mainucp'><a href='ucp.php'>Повернутись в UCP-панель</a></div><br></div>";
@@ -62,7 +62,7 @@
 	}
 	
 	if (!isset($_REQUEST["username"])) {
-		echo "<a href='control_mng.php?change_pwd=1'><input type='button' value='Зміна паролів для тестів' /></a><br/><br/>";
+		echo "<a href='control_mng.php?change_pwd=1'><input class='mui-btn mui-btn--primary mui-btn--raised' type='button' value='Зміна паролів для тестів' /></a><br/><br/>";
 		
 		$result = mysqli_query($mysql, "SELECT * FROM `$TABLE_ACCOUNTS`");
 		while($row = mysqli_fetch_assoc($result)) {
@@ -85,7 +85,7 @@
 			while($row = mysqli_fetch_assoc($result)) {
 				$test_type = $row['test_type'];
 				$block_id = $row['block_id'];
-				echo "<tr><td>".($test_type == 1 ? "Звичайний" : "Неправильні дієслова")."</td><td>#".$block_id."</td><td><a href='control_mng.php?act=delete&username=$username&test_type=$test_type&block_id=$block_id'><input type='button' value='Видалити' /></a></td></tr>";
+				echo "<tr><td>".($test_type == 1 ? "Звичайний" : "Неправильні дієслова")."</td><td>#".$block_id."</td><td><a href='control_mng.php?act=delete&username=$username&test_type=$test_type&block_id=$block_id'><input class='mui-btn mui-btn--primary mui-btn--raised' type='button' value='Видалити' /></a></td></tr>";
 			}
 			
 			echo "</table></center>";
@@ -94,8 +94,8 @@
 		
 		echo "<h1>Оберіть тип контрольного тестування</h1>";
 		$url_core = "control_mng.php?username=$username&test_type";
-		echo "<a href='$url_core=1'><input type='button' value='Звичайне' /></a>";
-		echo "<a href='$url_core=0' style='padding-left: 10px;'><input type='button' value='Неправильні дієслова' /></a>";
+		echo "<a href='$url_core=1'><input class='mui-btn mui-btn--primary mui-btn--raised' type='button' value='Звичайне' /></a>";
+		echo "<a href='$url_core=0' style='padding-left: 10px;'><input class='mui-btn mui-btn--primary mui-btn--raised' type='button' value='Неправильні дієслова' /></a>";
 	} else if (isset($_REQUEST["username"]) && isset($_REQUEST["test_type"]) && !isset($_REQUEST["block_id"])) {
 		$username = $_REQUEST["username"];
 		echo "<h1>Оберіть блок для тестування користувача <b>$username</b></h1>";
@@ -116,7 +116,7 @@
 					echo "<tr><td class='words_num'>$counter</td><td class='td_l'>".$row['word']."</td><td class='td_r'>".$row['translate']."</td></tr>";
 					$counter++;
 				}
-				echo "<tr><td colspan=3 style='text-align:center'><a href='control_mng.php?username=$username&test_type=$test_type&block_id=$block_id'><input type='button' value='Обрати блок' /></a></td></tr>";
+				echo "<tr><td colspan=3 style='text-align:center'><a href='control_mng.php?username=$username&test_type=$test_type&block_id=$block_id'><input class='mui-btn mui-btn--primary mui-btn--raised' type='button' value='Обрати блок' /></a></td></tr>";
 				echo "</table></span>";
 			}
 		} else if ($test_type == 0) {
@@ -131,7 +131,7 @@
 					echo "<tr><td class='words_num'>$counter</td><td class='td_l'>".$row['verb_inf']."</td><td class='td_l'>".$row['verb_2']."</td><td class='td_l'>".$row['verb_3']."</td><td class='td_r'>".$row['verb_translate']."</td></tr>";
 					$counter++;
 				}
-				echo "<tr><td colspan=5 style='text-align:center'><a href='control_mng.php?username=$username&test_type=$test_type&block_id=$block_id'><input type='button' value='Обрати блок' /></a></td></tr>";
+				echo "<tr><td colspan=5 style='text-align:center'><a href='control_mng.php?username=$username&test_type=$test_type&block_id=$block_id'><input class='mui-btn mui-btn--primary mui-btn--raised' type='button' value='Обрати блок' /></a></td></tr>";
 				echo "</table></span>";
 			}
 		}
