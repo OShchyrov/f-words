@@ -2,12 +2,12 @@
 	include "../header.php";
 	
 	$login = $_SESSION["login"];
+	$id = $_SESSION["uid"];
 	if($login == "") changeLocation("../index.php");
 
 	$result = mysqli_query($mysql, "SELECT * FROM `$TABLE_ACCOUNTS` WHERE `login` = '$login'");
 	$adm = mysqli_fetch_array($result);
 	$admin = $adm['admin'];
-	$id = $adm['uid'];
 	if($admin) echo "<a href='../ucp/ucp.php'><div id='ucp'>UCP-панель</div></a>";
 	
 	echo "<a href='../index.php'><div id='info'>Головна</div></a>";
@@ -32,5 +32,5 @@
 		echo "<tr><td><input type='text' name='w_$index' value=\"$word\" /></td><td><input type='text' name='tr_$index' value=\"$translate\" /></td><input type='hidden' name='i_$index' value='$ind' /></tr>";
 		$index ++;
 	}
-	echo "</table><input type='submit' name='update' value='ОНОВИТИ' /></form></center>";
+	echo "</table><input type='submit' name='update' class='mui-btn mui-btn--primary mui-btn--raised' value='ОНОВИТИ' /></form></center>";
 ?>

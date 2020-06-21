@@ -27,7 +27,7 @@
 			echo "<tr><td class='words_num'>$counter</td><td class='td_l'>".$row['word']."</td><td class='td_r'>".$row['translate']."</td></tr>";
 			$counter++;
 		}
-		echo "<tr><td colspan=3><a href='check.php?block_id=$block_id'><input type='button' value='Пройти тест' /></a></td></tr>";
+		echo "<tr><td colspan=3><a href='check.php?block_id=$block_id'><input type='button' class='mui-btn mui-btn--primary mui-btn--raised' value='Пройти тест' /></a></td></tr>";
 		echo "</table></span>";
 	}
 	

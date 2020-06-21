@@ -47,7 +47,7 @@
 		echo "<div id=main><form method='post'>
 		<h2>Диктант по неправильним дієсловам</h2>
 		<input placeholder='Пароль для тест-контролю' style='margin-top:100px;' type='text' name='access_pwd' autocomplete='off'/><br/>
-		<input type='submit' name='access' value='СТАРТ!' />
+		<input type='submit' name='access' value='СТАРТ!' class='mui-btn mui-btn--primary mui-btn--raised mui-btn--danger' />
 		<input type='hidden' name='TEST_MODE' value='1' />
 		<a href='/'><div id='info'>Головна</div></a>
 		<input type='hidden' name='unsuccess_attempts' value='$unsuccess_attempts' />
@@ -72,7 +72,7 @@
 	for($i = 1; $word = mysqli_fetch_assoc($result);$i++) {
 		$aword = $word["verb_translate"];
 		if($aword != '') {
-			echo "<tr class='verbs_list'><td><span class='show_words'>".$aword."</span></td>"."<td><input onpaste='return false;' autocomplete='off' type='text' name='verb_inf_$i'></td>"."<td><input onpaste='return false;' autocomplete='off' type='text' name='verb_2_$i'></td>"."<td><input onpaste='return false;' autocomplete='off' type='text' name='verb_3_$i'></td><td><input type='button' value='Далі' onClick='showRandomRow()' class='nextClick' /></td></tr>";
+			echo "<tr class='verbs_list'><td><span class='show_words'>".$aword."</span></td>"."<td><input onpaste='return false;' autocomplete='off' type='text' name='verb_inf_$i'></td>"."<td><input onpaste='return false;' autocomplete='off' type='text' name='verb_2_$i'></td>"."<td><input onpaste='return false;' autocomplete='off' type='text' name='verb_3_$i'></td><td><input class='mui-btn mui-btn--primary mui-btn--raised' type='button' value='Далі' onClick='showRandomRow()' class='nextClick' /></td></tr>";
 			$num_of_words++;
 		}
 	}

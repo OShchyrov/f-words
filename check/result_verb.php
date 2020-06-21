@@ -35,6 +35,8 @@
 	}
 	
 	echo "<div id='mark'></div>";
+	echo "<div id='mainp'><a href='../check/check.php?block_id=$block_id'>Ще раз</a></div><br/>";
+	echo "<div id='mainp'><a href='../index.php'>На головну</a></div><br/><br/>";
 	$id = $_REQUEST["block_id"];
 	$wordsres = mysqli_query($mysql, "SELECT * FROM `$TABLE_IRREGULAR_VERBS` WHERE `u_id` = $id") or die(mysqli_error($mysql));
 	$aresult = mysqli_query($mysql, "SELECT id FROM `$TABLE_ACCOUNTS` WHERE `login` = '$login'");
@@ -107,7 +109,7 @@
 			$wordsnum += 3;
 		} else break;
 	}
-	echo "<div id='mainp'><a href='../check/check_verbs.php'>Ще раз</a></div>";
+	echo "<div id='mainp'><a href='../check/check_verbs.php'>Ще раз</a></div><br/>";
 	echo "<div id='mainp'><a href='../index.php'>На головну</a></div>";
 	echo "</div>";
 	$result = mysqli_query($mysql, "SELECT * FROM `$TABLE_ACCOUNTS` WHERE `login` = '$login'");

@@ -1,11 +1,21 @@
 * {
-	font-family: Arial, Tahoma;
+	font-family: "Roboto", "Helvetica Neue", Helvetica, Arial;
 }
 body {
 	margin: 0;
 	background-color: #c2c2c2;
 }
-#head {
+.mui-appbar {
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+.mui-appbar h1 {
+	margin: 0;
+	font-size: 36px;
+	line-height: normal;
+}
+/*#head {
 	text-align: center;
 	background-color: #2B51DB;
 	padding-top: 20px;
@@ -14,16 +24,9 @@ body {
 #head h1 {
 	color: #27C439;
 	font-size: 36px;
-}
+}*/
 .test_mode {
-	text-align: center;
-	background-color: #db2b2b;
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
-.test_mode h1 {
-	color: #a7c7aa;
-	font-size: 36px;
+	background-color: #f55a4e;
 }
 #main {
 	background-color: #eeeeee;
@@ -32,7 +35,7 @@ body {
 	padding-bottom: 10px;
 }
 #main h2 {
-	padding-top: 100px;
+	padding-top: 20px;
 	padding-bottom: 20px;
 	margin: 0;
 }
@@ -40,7 +43,7 @@ body {
 	font-size: 24px;
 	width: 70px;
 }
-#submit_num, #asd {
+/*#submit_num, #asd {
 	margin-top: 10px;
 	display: inline-block;
 	text-align: center;
@@ -55,9 +58,13 @@ body {
 }
 #submit_num,#asd:hover {
 	background-color: #00F;
-}
+}*/
 #login {
-	text-align: center;
+	margin-top: 100px;
+	padding: 30px;
+	border-radius: 20px;
+	background-color: white;
+	display: inline-block;
 }
 #info {
 	position: fixed;
@@ -74,6 +81,7 @@ form span , form input, input{
 	color: #44A7D8;
 	font-size: 24px;
 }
+
 #logout {
 	position: fixed;
 	bottom: 0;

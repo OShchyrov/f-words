@@ -26,9 +26,9 @@
 			<h2>Авторизація</h2>
 			<form method='post' action='login.php'>
 			<table align='center'> <tr>
-				<td><span>Логін: </span></td><td><input type='text' name='login' /></td></tr>
-				<tr><td><span>Пароль: </span></td><td><input type='password' name='password' /></td></tr>
-				<tr><td align='center' colspan=2><input type='submit' value='Вхід' /></td></tr>
+				<td><span>Логін: </span></td><td><input type='text' name='login' class='input' /></td></tr>
+				<tr><td><span>Пароль: </span></td><td><input type='password' name='password' class='input' /></td></tr>
+				<tr><td align='center' colspan=2><br/><input class='mui-btn mui-btn--primary mui-btn--raised' type='submit' value='Вхід' /></td></tr>
 			</table>
 			</form>
 		</div>

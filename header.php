@@ -8,9 +8,13 @@
 	<meta charset='utf-8' />
 	<meta name="google" content="notranslate">
 	<link rel='shortcut icon' href='https://goo.gl/PwM0y9'>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+	<link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
 	<link rel='stylesheet' href='/css/style.css'>
 	<link rel='stylesheet' href='/css/mobile.css'>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>
 		var Timer = function(callback, delay) {
 			var timerId, start;
@@ -123,7 +127,7 @@
 	<title>Перевірка слів.</title>
 </head>
 <body>
-	<div id='<?php if(!isset($_POST["TEST_MODE"])) echo "head"; ?>' class='<?php if(isset($_POST["TEST_MODE"])) echo "test_mode"; ?>'>
+	<div id='<?php if(!isset($_POST["TEST_MODE"])) echo "head"; ?>' class='mui-appbar <?php if(isset($_POST["TEST_MODE"])) echo "test_mode"; ?>'>
 		<h1>Вчимо іноземні слова!</h1>
 	</div>
 	<div id='main'>
@@ -142,8 +146,8 @@
 	}
 	
 
-	if ($_SERVER['SERVER_NAME'] != "f-words.eu5.org") {
-		echo "<div style='padding-top: 10px;'><h1>Сайт не доступний за цією адресою!</h1><a href='http://f-words.eu5.org'><h1>Перейти на новий сайт</h1></a></div>";
+	if ($_SERVER['SERVER_NAME'] != "l-words.000webhostapp.com") {
+		echo "<div style='padding-top: 10px;'><h1>Сайт не доступний за цією адресою!</h1><a href='https://l-words.000webhostapp.com/'><h1>Перейти на новий сайт</h1></a></div>";
 		exit;
 	}
 	

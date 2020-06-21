@@ -6,6 +6,10 @@
 		$word = str_replace("did not", "didn't", $word);
 		$word = str_replace("is not", "isn't", $word);
 		$word = str_replace("are not", "aren't", $word);
+		$word = str_replace("I am", "I'm", $word);
+		$word = str_replace("You are", "You're", $word);
+		$word = str_replace("He is", "He's", $word);
+		$word = str_replace("it is", "it's", $word);
 		$word = ucfirst($word);
 		return $word;
 	}
@@ -40,6 +44,8 @@
 	}
 	
 	echo "<div id='mark'></div>";
+	echo "<div id='mainp'><a href='../check/check.php?block_id=$block_id'>Ще раз</a></div><br/>";
+	echo "<div id='mainp'><a href='../index.php'>На головну</a></div><br/><br/>";
 	$aresult = mysqli_query($mysql, "SELECT id FROM `$TABLE_ACCOUNTS` WHERE `login` = '$login'");
 	$aid = mysqli_fetch_assoc($aresult);
 	$id = $aid["id"];
@@ -73,7 +79,7 @@
 		}
 		else break;
 	}
-	echo "<div id='mainp'><a href='../check/check.php?block_id=$block_id'>Ще раз</a></div>";
+	echo "<br/><div id='mainp'><a href='../check/check.php?block_id=$block_id'>Ще раз</a></div><br/>";
 	echo "<div id='mainp'><a href='../index.php'>На головну</a></div>";
 	echo "</div>";
 	if($admin) echo "<a href='../ucp/ucp.php'><div id='ucp'>UCP-панель</div></a>";

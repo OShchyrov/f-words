@@ -51,6 +51,7 @@
 		}
 		var submit_words = document.createElement('input');
 		submit_words.type = 'submit';
+		submit_words.className = 'mui-btn mui-btn--primary mui-btn--raised';
 		submit_words.value = 'Додати слова';
 		form1.appendChild(submit_words);
 	}

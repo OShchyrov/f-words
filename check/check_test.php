@@ -44,7 +44,7 @@
 		echo "<div id=main><form method='post'>
 		<h2>Словниковий диктант #".$_REQUEST['block_id']."</h2>
 		<input placeholder='Пароль для тест-контролю' style='margin-top:100px;' type='text' name='access_pwd' autocomplete='off'/><br/>
-		<input type='submit' name='access' value='СТАРТ!' />
+		<input type='submit' name='access' value='СТАРТ!' class='mui-btn mui-btn--primary mui-btn--raised mui-btn--danger' />
 		<input type='hidden' name='TEST_MODE' value='1' />
 		<a href='/'><div id='info'>На головну</div></a>
 		<input type='hidden' name='unsuccess_attempts' value='$unsuccess_attempts' />

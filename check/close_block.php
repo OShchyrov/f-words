@@ -40,8 +40,8 @@
 	
 	echo "<div style='padding-top: 30px;'><h1>Ви дійсно хочете закрити блок слів? Ніякі дії з ними більше не будуть доступними!</h1></div>";
 	echo "<form method=post>
-	<input type='submit' name='close_block' value='Так' />
-	<a href='words.php' style='padding-left: 10px;'><input type='button' value='На головну' /></a>
+	<input type='submit' name='close_block' class='mui-btn mui-btn--primary mui-btn--raised mui-btn--danger' value='Так' />
+	<a href='words.php' style='padding-left: 10px;'><input type='button' class='mui-btn mui-btn--primary mui-btn--raised' value='На головну' /></a>
 	</form>";
 	echo "<div><table id='table_words' align=center>";
 	$counter = 1;

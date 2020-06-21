@@ -1,7 +1,7 @@
 <?php include "../header.php" ?>
 			<h2>Введіть кількість слів.</h2>
 			<input id='num_of_words' type='number' /><br>
-			<span id='submit_num'>Далі</span>
+			<span class='mui-btn mui-btn--primary mui-btn--raised' id='submit_num'>Далі</span>
 			<script src='../script.js' type='text/javascript'></script>
 			<div style='padding-top: 60px;' class='words_data'></div>
 		<?php

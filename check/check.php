@@ -76,7 +76,7 @@
 			}
 		}
 		if($aword != '') {
-			echo "<tr><td align=center><span class='show_words'>".$aword."</span></td>"."<td><input onpaste='return false;' autocomplete='off' autocapitalize='off' type='text' name='w_$i' class='word_input'></td><td align=center><input type='button' onclick='showRandomRow()' value='Далі' class='nextClick' /></td></tr>";
+			echo "<tr><td align=center><span class='show_words'>".$aword."</span></td>"."<td><input onpaste='return false;' autocomplete='off' autocapitalize='off' type='text' name='w_$i' class='word_input'></td><td align=center><input class='mui-btn mui-btn--primary mui-btn--raised' type='button' onclick='showRandomRow()' value='Далі' class='nextClick' /></td></tr>";
 			$num_of_words++;
 		}
 	}

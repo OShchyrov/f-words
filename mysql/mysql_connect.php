@@ -1,15 +1,15 @@
 <?php
 	
-	if ($_SERVER['SERVER_NAME'] != "f-words.eu5.org") {
+	if ($_SERVER['SERVER_NAME'] != "l-words.000webhostapp.com") {
 		$host = "192.168.0.22";
 		$user = "root";
 		$password = "";
 		$database = "f_words";
 	} else {
 		$host = "localhost";
-		$user = "128437";
-		$password = "13579sasha";
-		$database = "128437";
+		$user = "id14120234_root";
+		$password = "13579Sasha!!";
+		$database = "id14120234_dbase";
 	}
 	$TABLE_ACCOUNTS = 'words_accounts';
 	$TABLE_WORDS = 'words_user_words';
