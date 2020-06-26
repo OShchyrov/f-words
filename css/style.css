@@ -136,7 +136,7 @@ form span , form input, input{
 	text-align: center;
 	line-height: 50px;
 	font-size: 30px;
-	padding-top: 50px;
+	padding-top: 20px;
 }
 #knows {
 	float: right;
@@ -229,6 +229,15 @@ table .caption {
 	font-size: 30px;
 	padding-top: 100px;
 }
+.label {
+	padding: 2px 8px;
+	position: fixed;
+	bottom: 85px;
+	left: 90px;
+	background-color: #FF1100;
+	border-radius: 50%;
+	color: #FFF;
+}
 .del_form {
 	padding-top: 40px;
 }
@@ -259,4 +268,106 @@ table .caption {
 	border-radius: 10px;
 	text-align: center;
 	padding: 10px;
+}
+
+.help_btn {
+	background-image: url("/help.png");
+	background-size: 100px;
+	cursor: pointer;
+	height: 100px;
+	width: 100px;
+	position: fixed;
+	left: 10px;
+	bottom: 10px;
+}
+
+.help_block {
+	background-color: #FFF;
+	height: 180px;
+	width: 250px;
+	position: fixed;
+	border-radius: 10px;
+	left: 120px;
+	bottom: 50px;
+	text-align: center;
+}
+
+.chat {
+	margin: 0 auto;
+	width: 35%;
+	height: 70%;
+}
+
+.chat-messages {
+	border: 0.5px solid #333;
+	border-radius: 20px;
+	background: white;
+	min-height:93%;
+	max-height:93%;
+	overflow:auto;
+	margin-bottom: 5px;
+}
+
+.chat-messages__content {
+	padding:1px;
+}
+
+.chat__message {
+	margin-top:2px;
+	padding:2px;
+	text-align: left;
+}
+
+.chat__message_admin {
+	left: 0;
+}
+
+.chat__message_system {
+	text-align: center;
+	font-size: 14pt;
+}
+
+.chat__message_current_user {
+	text-align: right;
+}
+
+.chat__message_admin span {
+	color: #FF1100;
+	font-weight: bold;
+}
+
+.chat__message_user span {
+	color: blue;
+}
+
+.chat-input {
+	min-height:6%;
+}
+
+#chat-form input {
+	border-left:3px solid #333;
+	font-family:arial;
+	font-size:16px;
+	vertical-align:middle;
+	color:#333;
+	border:0;
+	display:inline-block;
+	margin:1px;
+	height:30px;
+}
+
+#chat-form {
+	border: 1px solid #333;
+	background: white;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.chat-form__input {
+	width:93%;
+}
+
+.chat-form__submit {
+	width:5%;
+	cursor: pointer;
 }

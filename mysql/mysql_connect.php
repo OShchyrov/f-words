@@ -20,6 +20,8 @@
 	$TABLE_SETTINGS = 'words_settings';
 	$TABLE_USER_ACTIONS = "words_user_actions";
 	$TABLE_USER_PLANS = "words_user_plans";
+	$TABLE_HELP_REQUESTS = "words_user_help_requests";
+	$TABLE_CHAT = "words_user_chat";
 
 	global $mysql;
 	$mysql = mysqli_connect($host, $user, $password);
@@ -98,6 +100,22 @@
 	dt DATE NOT NULL,
 	description VARCHAR(2048) CHARACTER SET cp1251 COLLATE cp1251_ukrainian_ci NOT NULL,
 	PRIMARY KEY(u_id, dt)
+	)") or die(mysqli_error($mysql));
+	mysqli_query($mysql, "DROP TABLE $TABLE_HELP_REQUESTS");
+	mysqli_query($mysql, "CREATE TABLE $TABLE_HELP_REQUESTS (
+	id INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	u_id INT(10) NOT NULL,
+	dt DATETIME NOT NULL,
+	admin INT(10) NOT NULL,
+	status INT(1) NOT NULL
+	)") or die(mysqli_error($mysql));
+	mysqli_query($mysql, "DROP TABLE $TABLE_CHAT");
+	mysqli_query($mysql, "CREATE TABLE $TABLE_CHAT (
+	id INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	request_id INT(11) NOT NULL,
+	u_id INT(10) NOT NULL,
+	dt DATETIME NOT NULL,
+	message VARCHAR(1024) CHARACTER SET cp1251 COLLATE cp1251_ukrainian_ci NOT NULL
 	)") or die(mysqli_error($mysql));
 	*/
 ?>
