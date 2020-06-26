@@ -38,6 +38,10 @@
 		}
 	} else if (isset($_REQUEST["load"])) {
 		$request_id = $_REQUEST["request_id"];
+		if ($request_id == -1) {
+			echo "Завантаження...";
+			exit;
+		}
 		$user_id = $_SESSION["uid"];
 		$result = mysqli_query($mysql, "SELECT acc.login, acc.admin, chat.* FROM $TABLE_CHAT AS chat INNER JOIN $TABLE_ACCOUNTS AS acc ON chat.u_id = acc.id WHERE request_id = $request_id ORDER BY chat.id");
 		if (!$result || mysqli_num_rows($result) == 0) {
