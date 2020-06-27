@@ -5,6 +5,14 @@
 		$login = $_SESSION["login"];
 		$id = $_SESSION["uid"];
 		
+		$result = mysqli_query($mysql, "SELECT * FROM $TABLE_ACCOUNTS WHERE id = $id");
+		$admin = mysqli_fetch_assoc($result)["admin"];
+		
+		if ($admin) {
+			echo "error";
+			exit;
+		}
+		
 		$result = mysqli_query($mysql, "SELECT * FROM $TABLE_HELP_REQUESTS WHERE u_id = '$id' AND status = 0");
 		if (!$result || mysqli_num_rows($result) == 0) {
 			$dt = date("Y-m-d H:i:s");
