@@ -26,6 +26,7 @@
 	}
 	(function worker() {
 		var thiss = document.getElementById("chat-form");
+		if (thiss.request_id.value != '') {
 			$.ajax({
 				method: "POST",
 				url: "<?php echo $_SESSION["SERVER_NAME"]; ?>/chat_api.php",
@@ -42,5 +43,6 @@
 				  setTimeout(worker, 1000);
 				}
 			});
-		})();
+		}
+	})();
 </script>

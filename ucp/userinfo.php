@@ -1,6 +1,7 @@
 <?php
 	include '../header.php';
 	include "check_admin.php";
+	include_once "page_names.php";
 	checkAdmin();
 	echo "<div id='main'>";
 	if(isset($_POST["accname"]))
@@ -20,7 +21,9 @@
 		echo "<span class='user'>Користувач:<b> <span id='change_name'>$user</span></span></b><br>";
 		echo "<span id='user'>Пароль:<span class='pass_d'>*******</span><span class='pass'><b>". $info["password"]."</span></span></b><br>";
 		$datetime = gmdate("Y-m-d H:i:s", $info["online"]+3*3600);
+		$active = getPathName($info["last_path"]);
 		echo "<span class='user'>Останній раз на сайті:<b> <span id='change_name'>".$datetime."</span></span></b><br>";
+		echo "<span class='user'>Остання активність:<b> <span id='change_name'>".$active."</span></span></b><br>";
 		echo "<span class='user_adm'>Адміністратор: <b>";
 		if($info["admin"]) echo "Так"; else echo "Ні"; echo "</b></span>";
 		$result = mysqli_query($mysql, "SELECT ban FROM $TABLE_ACCOUNTS WHERE login = '$user'");

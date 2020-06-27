@@ -151,7 +151,8 @@
 	}
 	
 	if (isset($_SESSION["login"])) {
-		mysqli_query($mysql, "UPDATE $TABLE_ACCOUNTS SET online = '".time()."' WHERE login = '".$_SESSION["login"]."'") or die(mysqli_error($mysql));
+		$path = $_SERVER['REQUEST_URI'];
+		mysqli_query($mysql, "UPDATE $TABLE_ACCOUNTS SET online = '".time()."', last_path = '$path' WHERE login = '".$_SESSION["login"]."'") or die(mysqli_error($mysql));
 	}
 	
 

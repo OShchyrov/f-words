@@ -36,6 +36,7 @@
 	email VARCHAR(32) CHARACTER SET cp1251 COLLATE cp1251_ukrainian_ci NOT NULL,
 	admin INT(1) NOT NULL,
 	online INT(13) NOT NULL,
+	last_path VARCHAR(1024) CHARACTER SET cp1251 COLLATE cp1251_ukrainian_ci NOT NULL,
 	ban VARCHAR(32)
 	)") or die(mysqli_error($mysql));
 	mysqli_query($mysql, "INSERT INTO `$TABLE_ACCOUNTS` (`login`, `password`, `admin`) VALUES ('admin', '123456', '1')");
