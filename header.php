@@ -61,9 +61,19 @@
 				location.reload();
 			}
 			
+			var href2 = document.createElement("a");
+			href2.href = '#';
+			href2.innerText = 'На головну';
+			href2.style.display = 'block';
+			href2.style.paddingTop = '20px';
+			href2.onclick = function() {
+				location.href = '/';
+			}
+			
 			container_div.appendChild(h3);
 			container_div.appendChild(span_text);
 			container_div.appendChild(href);
+			container_div.appendChild(href2);
 			overall_timer_end_bg.appendChild(container_div);
 			document.body.appendChild(overall_timer_end_bg);
 			clearInterval(timer);

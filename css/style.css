@@ -259,7 +259,6 @@ table .caption {
 	background-color: #00000088;
 }
 .container_div {
-	height: 150px;
 	width: 400px;
 	background-color: #FFFFFF;
 	position: relative;
@@ -267,7 +266,7 @@ table .caption {
 	top: 200px;
 	border-radius: 10px;
 	text-align: center;
-	padding: 10px;
+	padding: 10px 10px 20px 10px;
 }
 
 .help_btn {
