@@ -156,10 +156,10 @@
 	}
 	
 
-	/*if ($_SERVER['SERVER_NAME'] != "l-words.000webhostapp.com") {
+	if ($_SERVER['SERVER_NAME'] != "l-words.000webhostapp.com") {
 		echo "<div style='padding-top: 10px;'><h1>Сайт не доступний за цією адресою!</h1><a href='https://l-words.000webhostapp.com/'><h1>Перейти на новий сайт</h1></a></div>";
 		exit;
-	}*/
+	}
 	
 ?>
 <div class='help_btn'></div>

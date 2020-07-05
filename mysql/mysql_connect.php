@@ -1,7 +1,7 @@
 <?php
 	
 	if ($_SERVER['SERVER_NAME'] != "l-words.000webhostapp.com") {
-		$host = "192.168.0.22";
+		$host = "192.168.0.111";
 		$user = "root";
 		$password = "";
 		$database = "f_words";
@@ -107,7 +107,7 @@
 	id INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	u_id INT(10) NOT NULL,
 	dt DATETIME NOT NULL,
-	admin INT(10) NOT NULL,
+	admin INT(10) NOT NULL DEFAULT '0',
 	status INT(1) NOT NULL
 	)") or die(mysqli_error($mysql));
 	mysqli_query($mysql, "DROP TABLE $TABLE_CHAT");

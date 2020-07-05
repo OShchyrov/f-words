@@ -1,22 +1,22 @@
 <?php
 	session_start();
-	include "mysql/mysql_connect.php";
+	include $_SERVER['DOCUMENT_ROOT'] . "/mysql/mysql_connect.php";
 	if (isset($_REQUEST["request"])) {
 		$login = $_SESSION["login"];
 		$id = $_SESSION["uid"];
 		
 		$result = mysqli_query($mysql, "SELECT * FROM $TABLE_ACCOUNTS WHERE id = $id");
 		$admin = mysqli_fetch_assoc($result)["admin"];
-		
-		if ($admin) {
+
+		if ($admin == 1) {
 			echo "error";
 			exit;
 		}
-		
-		$result = mysqli_query($mysql, "SELECT * FROM $TABLE_HELP_REQUESTS WHERE u_id = '$id' AND status = 0");
+
+		$result = mysqli_query($mysql, "SELECT * FROM $TABLE_HELP_REQUESTS WHERE u_id = '$id' AND status = '0'") or die(mysqli_error($mysql));
 		if (!$result || mysqli_num_rows($result) == 0) {
 			$dt = date("Y-m-d H:i:s");
-			mysqli_query($mysql, "INSERT INTO $TABLE_HELP_REQUESTS (u_id, dt, status) VALUES ('$id', '$dt', '0')");
+			mysqli_query($mysql, "INSERT INTO $TABLE_HELP_REQUESTS (u_id, dt, status) VALUES ('$id', '$dt', '0')") or die (mysqli_error($mysql));
 			
 			echo "ok";
 		} else echo "error";
