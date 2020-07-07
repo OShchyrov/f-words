@@ -18,6 +18,11 @@
 			$dt = date("Y-m-d H:i:s");
 			mysqli_query($mysql, "INSERT INTO $TABLE_HELP_REQUESTS (u_id, dt, status) VALUES ('$id', '$dt', '0')") or die (mysqli_error($mysql));
 			
+			$link = $_SERVER['SERVER_NAME'] . "/ucp/online-help.php";
+			$msg = "Користувач <b>$login</b> зробив запит на <i>Online-допомогу</i>!\n\n<a href='$link'>Перейти в UCP панель</a>";
+			
+			file_get_contents("http://" . $_SERVER['SERVER_NAME'] . "/telegram/telegrambot.php?message=" . urlencode($msg));
+			
 			echo "ok";
 		} else echo "error";
 	} else if (isset($_REQUEST["get"])) {

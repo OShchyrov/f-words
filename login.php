@@ -12,6 +12,10 @@
 			$_SESSION["login"] = $login;
 			$_SESSION["uid"] = $id;
 			mysqli_query($mysql, "UPDATE $TABLE_ACCOUNTS SET online = '".time()."' WHERE login = '$login'");
+			$msg = "Користувач <b>$login</b> увійшов на сайт\n\n" . date("Y-m-d H:i:s");
+			
+			file_get_contents("http://" . $_SERVER['SERVER_NAME'] . "/telegram/telegrambot.php?message=" . urlencode($msg));
+			
 			echo "<script>window.location = \"index.php?action=3\";</script>";
 		} else {
 			echo "<script>window.location = \"index.php?action=1\";</script>";
