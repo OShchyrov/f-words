@@ -11,7 +11,7 @@
 	
 	echo "<a href='../index.php'><div id='info'>Головна</div></a>";
 	
-	$result = mysqli_query($mysql, "SELECT block_id FROM $TABLE_BLOCKS WHERE u_id = '$id' AND status = '0' ORDER BY block_id DESC LIMIT 1");
+	$result = mysqli_query($mysql, "SELECT block_id FROM $TABLE_BLOCKS WHERE u_id = '$id' AND block_id < 100 AND status = '0' ORDER BY block_id DESC LIMIT 1");
 	$rows = mysqli_num_rows($result);
 	if ($rows == 0) {
 		mysqli_query($mysql, "INSERT INTO $TABLE_BLOCKS (u_id, block_id, status) VALUES ('$id', '1', '0')");

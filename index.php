@@ -2,7 +2,7 @@
 	include 'header.php';
 	
 	echo "<div id='main'>";
-	$login = $_SESSION["login"];
+	$login = isset($_SESSION["login"]) ? $_SESSION["login"] : "";
 	$result = mysqli_query($mysql, "SELECT * FROM `$TABLE_ACCOUNTS` WHERE `login` = '$login'");
 	$isban = mysqli_fetch_assoc($result)['ban'];
 	if($isban > date('Y-m-d') && $_GET['action'] != 2):  

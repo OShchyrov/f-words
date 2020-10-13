@@ -15,7 +15,7 @@
 
 		$result = mysqli_query($mysql, "SELECT * FROM $TABLE_HELP_REQUESTS WHERE u_id = '$id' AND status = '0'") or die(mysqli_error($mysql));
 		if (!$result || mysqli_num_rows($result) == 0) {
-			$dt = date("Y-m-d H:i:s");
+			$dt = date("Y-m-d H:i:s", time() + 3*3600);
 			mysqli_query($mysql, "INSERT INTO $TABLE_HELP_REQUESTS (u_id, dt, status) VALUES ('$id', '$dt', '0')") or die (mysqli_error($mysql));
 			
 			$link = $_SERVER['SERVER_NAME'] . "/ucp/online-help.php";

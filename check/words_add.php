@@ -36,7 +36,7 @@
 				
 			}
 			
-			$result = mysqli_query($mysql, "SELECT block_id FROM $TABLE_BLOCKS WHERE u_id = '$id' AND status = 0 ORDER BY block_id DESC LIMIT 1");
+			$result = mysqli_query($mysql, "SELECT block_id FROM $TABLE_BLOCKS WHERE u_id = '$id' AND block_id < 100 AND status = 0 ORDER BY block_id DESC LIMIT 1");
 			$block_id = mysqli_fetch_array($result)[0];
 			
 			$result = mysqli_query($mysql, "SELECT * FROM $TABLE_WORDS WHERE u_id = '$id' AND block_id = $block_id");

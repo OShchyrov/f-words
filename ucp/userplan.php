@@ -34,10 +34,11 @@
 				$result = mysqli_query($mysql, "SELECT * FROM $TABLE_ACCOUNTS WHERE login = '$username' LIMIT 1");
 				$target_id = mysqli_fetch_assoc($result)["id"];
 				$dt = $_REQUEST["dt"];
-				$description = $_REQUEST["description"];
-				mysqli_query($mysql, "INSERT INTO $TABLE_USER_PLANS (u_id, dt, description) VALUES ('$target_id', '$dt', '$description')");
+				$description = str_replace("'", "''", $_REQUEST["description"]);
+				mysqli_query($mysql, "INSERT INTO $TABLE_USER_PLANS (u_id, dt, description) VALUES ('$target_id', '$dt', '$description')") or die(mysqli_error($mysql));
 				
 				echo "<h1>Для користувача $username додано новий план!</h1>";
+				sendTelegram($mysql, $username, "Для Вас було додано <b>новий календарний план!</b>");
 				echo "<a href='ucp.php'>UCP-панель</a>";
 			} else {
 				echo "<h1>Додати календарний план для $username</h1>";
@@ -89,7 +90,7 @@
 					echo "<tr><td colspan=2 align=center><input class='mui-btn mui-btn--primary mui-btn--raised' type='submit' name='update' value='Відправити' /></td></tr>";
 					echo "</table></form>";
 				} else {
-					$description = $_REQUEST["description"];
+					$description = str_replace("'", "''", $_REQUEST["description"]);
 					mysqli_query($mysql, "UPDATE $TABLE_USER_PLANS SET description = '$description' WHERE u_id = $target_id AND dt = '$dt'") or die(mysqli_error($mysql));
 				
 					echo "<h1>Для користувача $username відредаговано план на $dt!</h1>";

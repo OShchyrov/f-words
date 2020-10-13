@@ -12,7 +12,7 @@
 			$_SESSION["login"] = $login;
 			$_SESSION["uid"] = $id;
 			mysqli_query($mysql, "UPDATE $TABLE_ACCOUNTS SET online = '".time()."' WHERE login = '$login'");
-			$msg = "Користувач <b>$login</b> увійшов на сайт\n\n" . date("Y-m-d H:i:s");
+			$msg = "Користувач <b>$login</b> увійшов на сайт\n\n" . date("Y-m-d H:i:s", time() + 3*3600);
 			
 			file_get_contents("http://" . $_SERVER['SERVER_NAME'] . "/telegram/telegrambot.php?message=" . urlencode($msg));
 			

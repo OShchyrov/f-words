@@ -147,7 +147,7 @@
 				checkTimer.resume();
 				if (countdown.innerText == '0') {
 					window.clearTimeout(checkTimer);
-					words[currentRow].getElementsByTagName('input')[1].click();
+					words[currentRow].getElementsByTagName('input')[3].click();
 				}
 			}, 1000);
 		}

@@ -1,15 +1,15 @@
 <?php
 	
-	if ($_SERVER['SERVER_NAME'] != "l-words.000webhostapp.com") {
+	if ($_SERVER['SERVER_NAME'] == "l-words.000webhostapp.com") {
 		$host = "192.168.0.111";
 		$user = "root";
 		$password = "";
 		$database = "f_words";
 	} else {
 		$host = "localhost";
-		$user = "id14120234_root";
-		$password = "13579Sasha!!";
-		$database = "id14120234_dbase";
+		$user = "shchyrov";
+		$password = "123";
+		$database = "f_words";
 	}
 	$TABLE_ACCOUNTS = 'words_accounts';
 	$TABLE_WORDS = 'words_user_words';
@@ -28,6 +28,7 @@
 	if(!$mysql) echo "Error connecting to DATABASE<br>";
 
 	$a = mysqli_select_db($mysql, $database) or die(mysqli_error($mysql));
+	mysqli_query($mysql, "SET NAMES utf8");
 	/*mysqli_query($mysql, "DROP TABLE $TABLE_ACCOUNTS");
 	mysqli_query($mysql, "CREATE TABLE $TABLE_ACCOUNTS (
 	id INT(10) AUTO_INCREMENT PRIMARY KEY,
@@ -37,7 +38,8 @@
 	admin INT(1) NOT NULL,
 	online INT(13) NOT NULL,
 	last_path VARCHAR(1024) CHARACTER SET cp1251 COLLATE cp1251_ukrainian_ci NOT NULL,
-	ban VARCHAR(32)
+	ban VARCHAR(32),
+	telegram_id INT(13) NOT NULL DEFAULT 0,
 	)") or die(mysqli_error($mysql));
 	mysqli_query($mysql, "INSERT INTO `$TABLE_ACCOUNTS` (`login`, `password`, `admin`) VALUES ('admin', '123456', '1')");
 	mysqli_query($mysql, "DROP TABLE $TABLE_WORDS");

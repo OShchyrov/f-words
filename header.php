@@ -5,7 +5,7 @@
 ?>
 <html translate="no">
 <head>
-	<meta charset='utf-8' />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="google" content="notranslate">
 	<link rel='shortcut icon' href='https://goo.gl/PwM0y9'>
 	
@@ -165,11 +165,19 @@
 		mysqli_query($mysql, "UPDATE $TABLE_ACCOUNTS SET online = '".time()."', last_path = '$path' WHERE login = '".$_SESSION["login"]."'") or die(mysqli_error($mysql));
 	}
 	
+	function sendTelegram ($mysql, $username, $text) {
+		$result = mysqli_query($mysql, "SELECT telegram_id FROM words_accounts WHERE login = '$username'") or die(mysqli_error($mysql));
+		$uid = mysqli_fetch_assoc($result)["telegram_id"];
+		if ($uid != 0) {
+			file_get_contents("http://" . $_SERVER['SERVER_NAME'] . "/telegram/telegrambot.php?to=$uid&message=" . urlencode($text));
+		}
+	}
+	
 
-	if ($_SERVER['SERVER_NAME'] != "l-words.000webhostapp.com") {
+	/*if ($_SERVER['SERVER_NAME'] != "l-words.000webhostapp.com") {
 		echo "<div style='padding-top: 10px;'><h1>Сайт не доступний за цією адресою!</h1><a href='https://l-words.000webhostapp.com/'><h1>Перейти на новий сайт</h1></a></div>";
 		exit;
-	}
+	}*/
 	
 ?>
 <div class='help_btn'></div>
