@@ -13,11 +13,11 @@
 	
 	echo "<a href='../index.php'><div id='info'>Головна</div></a>";
 
-	$aw = mysqli_query($mysql, "SELECT * FROM `$TABLE_TEST_RESULTS` WHERE `u_id` = '$id'");
+	$aw = mysqli_query($mysql, "SELECT * FROM `$TABLE_TEST_RESULTS` WHERE `u_id` = '$id' ORDER BY date_time DESC");
 	echo "<div style='padding-top: 20px;'><h1>Мої результати</h1>
 	<div id='results_info'></div>
 	<table id='table_results' align= center>";
-	echo "<tr><td><b><center>Дата та час</center></b></td><td><b><center>Тип тесту</center></b></td><td><b>Блок</b></td><td><b>Оцінка</b></td><td><b><center>Помилки</center></b></td></tr>";
+	echo "<tr><td><b><center>Дата та час</center></b></td><td><b><center>Тип тесту</center></b></td><td><b>Блок</b></td><td><b>Оцінка</b></td><td><b><center>Помилки</center></b></td><td><b><center>Правильні варіанти</center></b></td></tr>";
 	$numm = 0;
 	$middle_mark = 0;
 	$highest_mark = 0;
@@ -36,7 +36,9 @@
 		}
 		$mistakes = str_replace(",", ", ", $infos["mistakes"]);
 		$mistakes = substr($mistakes, 0, strlen($mistakes)-2);
-		echo "<tr><td>".$infos["date_time"]."</td><td>$test_type</td><td><center><b>#".$infos['block_id']."</b></center></td><td><b><center>".$infos["mark"]." б.</center></b></td><td style='max-width: 500px;'>$mistakes</td></tr>";
+		$mistakes_incorrect = str_replace(",", ", ", $infos["mistakes_incorrect"]);
+		$mistakes_incorrect = substr($mistakes_incorrect, 0, strlen($mistakes_incorrect)-2);
+		echo "<tr><td>".$infos["date_time"]."</td><td>$test_type</td><td><center><b>#".$infos['block_id']."</b></center></td><td><b><center>".$infos["mark"]." б.</center></b></td><td style='max-width: 500px;'>$mistakes_incorrect</td><td style='max-width: 500px;'>$mistakes</td></tr>";
 		
 		if ($highest_mark < $infos['mark']) {
 			$highest_mark = $infos['mark'];

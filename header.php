@@ -70,10 +70,22 @@
 				location.href = '/';
 			}
 			
+			var href3 = document.createElement("a");
+			href3.href = '#';
+			href3.innerText = 'Закрити';
+			href3.style.display = 'block';
+			href3.style.paddingTop = '20px';
+			href3.onclick = function() {
+				hideSessionExpired();
+			}
+			
 			container_div.appendChild(h3);
 			container_div.appendChild(span_text);
 			container_div.appendChild(href);
 			container_div.appendChild(href2);
+			<?php if (strpos($_SERVER['REQUEST_URI'], "words_add.php")) { ?>
+				container_div.appendChild(href3);
+			<?php } ?>
 			overall_timer_end_bg.appendChild(container_div);
 			document.body.appendChild(overall_timer_end_bg);
 			clearInterval(timer);

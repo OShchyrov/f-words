@@ -30,7 +30,7 @@
 	
 	if (isset($_POST['close_block'])) {
 		mysqli_query($mysql, "UPDATE $TABLE_BLOCKS SET status = '1' WHERE u_id = '$id' AND block_id = '$block_id'") or die(mysqli_error($mysql));
-		$result = mysqli_query($mysql, "SELECT block_id FROM $TABLE_BLOCKS WHERE u_id = '$id' ORDER BY block_id DESC LIMIT 1");
+		$result = mysqli_query($mysql, "SELECT block_id FROM $TABLE_BLOCKS WHERE u_id = '$id' AND block_id < 100 ORDER BY block_id DESC LIMIT 1");
 		$block_id = mysqli_fetch_assoc($result)['block_id'];
 		mysqli_query($mysql, "INSERT INTO $TABLE_BLOCKS (u_id, block_id, status) VALUES ('$id', '".($block_id+1)."', '0')");
 		echo "<div style='padding-top: 10px;'><h1>Блок слів закритий!</h1></div>";

@@ -150,14 +150,6 @@
 		mysqli_query($mysql, "INSERT INTO $TABLE_CONTROL_TESTS (u_id, test_type, block_id) VALUES ('$target_id', '$test_type', '$block_id')") or die(mysqli_error($mysql));
 		
 		echo "<div class='mainucp'><a href='ucp.php'>Повернутись в UCP-панель</a></div><br></div>";
-		
-		$request_params = array(
-			"email" => $email,
-			"type" => "control_test",
-			"data" => array("test_type" => $test_type, "block_id" => $block_id)
-		);
-		
-		file_get_contents('http://'.$_SERVER['SERVER_NAME'].'/mailer.php?' . http_build_query($request_params));
 	}
 
 	echo "</div>";

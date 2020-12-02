@@ -8,7 +8,7 @@
 			<div class='show_words'><a href='block_mng.php'>Управління словами та тестами.</a></div>
 			<div class='show_words'><a href='my_results.php'>Мої результати.</a></div>
 			<br/>
-			<div class='show_words' style='font-size: 30pt;'><a href='https://meet.google.com/bhp-cnmd-gfo'>Підключитись до уроку</a></div>
+			<div class='show_words' style='font-size: 30pt;'><a href='https://meet.google.com/ssc-aieq-scv'>Підключитись до уроку</a></div>
 		<?php
 			$login = $_SESSION["login"];
 			if($login == "") changeLocation("../index.php");

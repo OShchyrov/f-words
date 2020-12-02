@@ -82,6 +82,7 @@
 			if (!$result || mysqli_num_rows($result) < 1) {
 				sendMessage($to, "Рецепт \"$receipt\" не знайдено!</i>");
 			} else {
+				$text = str_replace("'", "''", $text);
 				if ($type == "ing") {
 					mysqli_query($mysql, "UPDATE " . TABLE_RECEIPT . " SET ingredients = '$text' WHERE receipt = '$receipt' AND u_id = '$to'") or die(mysqli_error($mysql));
 					sendMessage($to, "<i>Інгредієнти рецепту \"$receipt\" змінено.</i>");

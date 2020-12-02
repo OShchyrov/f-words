@@ -20,7 +20,7 @@
 		$info = mysqli_fetch_assoc($result1);
 		echo "<span class='user'>Користувач:<b> <span id='change_name'>$user</span></span></b><br>";
 		echo "<span id='user'>Пароль:<span class='pass_d'>*******</span><span class='pass'><b>". $info["password"]."</span></span></b><br>";
-		$datetime = gmdate("Y-m-d H:i:s", $info["online"]+3*3600);
+		$datetime = gmdate("Y-m-d H:i:s", $info["online"]+2*3600);
 		$active = getPathName($info["last_path"]);
 		echo "<span class='user'>Останній раз на сайті:<b> <span id='change_name'>".$datetime."</span></span></b><br>";
 		echo "<span class='user'>Остання активність:<b> <span id='change_name'>".$active."</span></span></b><br>";
@@ -46,7 +46,7 @@
 		echo "</table>
 		</div>";
 		echo "<br><br><span id='user_results'>Результати тестувань</span>";
-		$aw = mysqli_query($mysql, "SELECT * FROM `$TABLE_TEST_RESULTS` WHERE `u_id` = '$id'");
+		$aw = mysqli_query($mysql, "SELECT * FROM `$TABLE_TEST_RESULTS` WHERE `u_id` = '$id' ORDER BY date_time DESC");
 		echo "<div class='words_user'>
 			<div id='results_info'></div>
 			<table id='table_results' align= center>";
